@@ -1,0 +1,13 @@
+site_name: MkDocs Library
+theme:
+  name: dracula
+extra_css:
+- css/custom.css
+nav:
+- Articles:
+  - Article1: articles/article1.md
+  - Article2: articles/article2.md
+- Books:
+  - Book1: books/book1.md
+  - Book2: books/book2.md
+- Index: index.md
