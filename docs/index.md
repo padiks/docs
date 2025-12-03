@@ -99,7 +99,7 @@ with open("mkdocs.yml", "w") as f:
 Run the script to generate or update `mkdocs.yml`:
 
 ```bash
-python generate.py
+python3 generate.py
 ```
 
 ---
@@ -137,3 +137,4 @@ mkdocs build
 Enjoy your **fully modular Markdown library website**! 🎉
 
 ```
+
