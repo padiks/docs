@@ -1,14 +1,17 @@
+name: Deploy MkDocs
+
 on:
   push:
     branches:
-      - main  # Trigger workflow on push to the main branch
+      - main
 
 jobs:
-  deploy:
+  build-deploy:
     runs-on: ubuntu-latest
     permissions:
-      contents: write  # Required for pushing content to the repository
-      pages: write     # Required for deploying to GitHub Pages
+      contents: read
+      pages: write
+      id-token: write
 
     steps:
       - name: Checkout repository
@@ -23,12 +26,17 @@ jobs:
         run: |
           pip install mkdocs mkdocs-material
 
-      - name: Build the MkDocs site
-        run: |
-          mkdocs build
+      - name: Build MkDocs site
+        run: mkdocs build --site-dir ./site  # Build into ./site folder
 
+      - name: Upload artifact for GitHub Pages
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: ./site
+
+  deploy:
+    needs: build-deploy
+    runs-on: ubuntu-latest
+    steps:
       - name: Deploy to GitHub Pages
-        run: |
-          mkdocs gh-deploy --force
-        env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}  # Use your custom token
+        uses: actions/deploy-pages@v1
