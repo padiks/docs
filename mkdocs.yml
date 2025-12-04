@@ -2,14 +2,15 @@ site_name: MkDocs Library
 theme:
   name: material
   palette:
-    scheme: default   # ensures light mode  
+    scheme: default   # Ensures light mode
 extra_css:
-- css/custom.css
+  - css/custom.css  # Ensure this path is correct
+docs_dir: docs  # Tell MkDocs where your content is (in the docs folder)
 nav:
-- Articles:
-  - Article1: articles/article1.md
-  - Article2: articles/article2.md
-- Books:
-  - Book1: books/book1.md
-  - Book2: books/book2.md
-- Index: index.md
+  - Articles:
+    - Article1: articles/article1.md
+    - Article2: articles/article2.md
+  - Books:
+    - Book1: books/book1.md
+    - Book2: books/book2.md
+  - Index: index.md  # Index file in the docs folder
