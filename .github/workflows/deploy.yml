@@ -5,15 +5,9 @@ on:
     branches:
       - main
 
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -31,6 +25,11 @@ jobs:
         run: mkdocs build --site-dir ./site
 
       - name: Deploy to GitHub Pages
-        uses: github/pages-deploy-action@v2
+        uses: peaceiris/actions-gh-pages@v6
         with:
-          folder: ./site
+          github_token: ${{ secrets.GH_TOKEN }}
+          publish_dir: ./site
+          # optional: if your site is at https://padiks.github.io/docs/
+          # set the repository path:
+          # publish_branch: gh-pages
+          # destination_dir: docs
