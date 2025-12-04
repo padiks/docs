@@ -1,0 +1,1146 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>📘 Django – Guide 12 Part 1: Compute Module - MkDocs Library</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../css/custom.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#django-guide-12-part-1-compute-module" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="MkDocs Library" class="md-header__button md-logo" aria-label="MkDocs Library" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            MkDocs Library
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              📘 Django – Guide 12 Part 1: Compute Module
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="MkDocs Library" class="md-nav__button md-logo" aria-label="MkDocs Library" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    MkDocs Library
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Articles
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Articles
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../articles/article1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Article1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../articles/article2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Article2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Books
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Books
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../books/book1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Book1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../books/book2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Book2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Index
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#objectives" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 Objectives
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#project-structure-relevant-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📁 Project Structure (Relevant Files)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-coreurlspy-routing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1️⃣ core/urls.py — Routing
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-appscomputeurlspy-compute-routes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2️⃣ apps/compute/urls.py — Compute Routes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-appscomputeviewspy-views" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3️⃣ apps/compute/views.py — Views
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-templates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4️⃣ Templates
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4️⃣ Templates">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#summationhtml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        summation.html
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#summaryhtml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        summary.html
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-navigation-menu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5️⃣ Navigation Menu
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#final-result" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎉 Final Result
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#django-guide-12-part-2-rendering-static-markdown" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📘 Django – Guide 12 Part 2: Rendering Static Markdown
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#objectives_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 Objectives
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#project-structure-relevant-files_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📁 Project Structure (Relevant Files)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-coreurlspy-routing-for-markdown" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1️⃣ core/urls.py — Routing for Markdown
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-coreviewspy-markdown-rendering-logic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2️⃣ core/views.py — Markdown Rendering Logic
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2️⃣ core/views.py — Markdown Rendering Logic">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#static-markdown-content" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Static Markdown Content
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dynamic-markdown-file-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dynamic Markdown File Handling
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-template-markdown_rendererhtml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3️⃣ Template: markdown_renderer.html
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-accessing-markdown-pages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4️⃣ Accessing Markdown Pages
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#final-result_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎉 Final Result
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="django-guide-12-part-1-compute-module">📘 Django – Guide 12 Part 1: Compute Module</h1>
+<blockquote>
+<p><strong>📌 Note:</strong>
+This guide is part of the ongoing Django project, but it introduces a <strong>different focus</strong> from the previous modules (such as <strong>Stock</strong>, <strong>Items</strong>, and <strong>Movements</strong>). While those modules concentrated on database and inventory management, this mini-guide covers basic Django operations such as formula handling and static content rendering. The purpose of this project, including this guide, is to <strong>learn Django</strong> by applying its concepts in practical scenarios, reinforcing your understanding before returning to the larger project.</p>
+</blockquote>
+<hr />
+<h2 id="objectives">🎯 Objectives</h2>
+<p>By the end of this guide, you will:</p>
+<ul>
+<li>✅ Set up the <strong>Compute</strong> module with two routes: <strong>Summation</strong> and <strong>Summary</strong></li>
+<li>✅ Handle summation of two user-provided numbers with a simple form</li>
+<li>✅ Display a <strong>static summary</strong> page</li>
+<li>✅ Organize <strong>URL routing</strong> for the Compute module</li>
+<li>✅ Create a <strong>centralized menu</strong> for navigation between pages</li>
+</ul>
+<hr />
+<h2 id="project-structure-relevant-files">📁 Project Structure (Relevant Files)</h2>
+<pre><code>project_folder/
+├── core/
+│   └── urls.py               ← Core URLs for routing
+├── apps/
+│   ├── compute/
+│   │   ├── views.py          ← Views for summation and summary
+│   │   ├── urls.py           ← URLs for the compute module
+│   │   └── templates/compute/
+│   │       ├── summation.html ← Summation page template
+│   │       └── summary.html   ← Static summary page template
+└── db.sqlite3                ← Sample database (optional for testing)
+</code></pre>
+<hr />
+<h2 id="1-coreurlspy-routing">1️⃣ <code>core/urls.py</code> — Routing</h2>
+<pre><code class="language-python">from django.contrib import admin
+from django.urls import path, include
+
+urlpatterns = [
+    path('uom/', include('apps.uom.urls')),
+    path('admin/', admin.site.urls),
+    path('users/', include('apps.users.urls')),
+    path('categories/', include('apps.categories.urls')),
+    path('doctype/', include('apps.doctype.urls')),
+    path('items/', include('apps.items.urls')),
+    path('', include('apps.movements.urls')),  # Home page
+    path('compute/', include('apps.compute.urls')),  # Includes the compute URLs
+]
+</code></pre>
+<blockquote>
+<p>✅ The <code>compute</code> module is included in the core URLs and accessible via <code>/compute/</code>.</p>
+</blockquote>
+<hr />
+<h2 id="2-appscomputeurlspy-compute-routes">2️⃣ <code>apps/compute/urls.py</code> — Compute Routes</h2>
+<pre><code class="language-python">from django.urls import path
+from . import views
+
+app_name = 'compute'  # Set the namespace for the compute app
+
+urlpatterns = [
+    path('summation/', views.summation, name='summation'),  # Summation route
+    path('summary/', views.summary, name='summary'),        # Summary route
+]
+</code></pre>
+<blockquote>
+<p>✅ Two routes are defined:</p>
+<ul>
+<li><code>/compute/summation/</code> for the summation page</li>
+<li><code>/compute/summary/</code> for the static summary page</li>
+</ul>
+</blockquote>
+<hr />
+<h2 id="3-appscomputeviewspy-views">3️⃣ <code>apps/compute/views.py</code> — Views</h2>
+<pre><code class="language-python">from django.shortcuts import render
+
+# Summation View
+def summation(request):
+    input1 = ''  # Default to an empty string
+    input2 = ''  # Default to an empty string
+    sum_values = None
+
+    if request.method == 'POST':
+        input1 = request.POST.get('input1', '')
+        input2 = request.POST.get('input2', '')
+
+        try:
+            input1 = float(input1)
+            input2 = float(input2)
+            sum_values = input1 + input2
+        except ValueError:
+            sum_values = 'Invalid input. Please enter numeric values.'
+
+    return render(request, 'compute/summation.html', {
+        'title': 'Summation',
+        'input1': input1,
+        'input2': input2,
+        'sum_values': sum_values,
+    })
+
+# Summary View (Static page)
+def summary(request):
+    return render(request, 'compute/summary.html', {
+        'title': 'Summary',
+    })
+</code></pre>
+<blockquote>
+<p>✅ <strong>Summation</strong>: Handles POST requests to calculate the sum of two numbers provided by the user.
+✅ <strong>Summary</strong>: A static page for providing additional details or context.</p>
+</blockquote>
+<hr />
+<h2 id="4-templates">4️⃣ Templates</h2>
+<h3 id="summationhtml"><code>summation.html</code></h3>
+<p>This template allows the user to input two numbers and calculate their sum.</p>
+<pre><code class="language-html">{% extends 'base.html' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+&lt;div class=&quot;card shadow-lg p-4 mb-3&quot;&gt;
+    &lt;h4 class=&quot;mb-4 text-center&quot;&gt;{{ title }}&lt;/h4&gt;
+
+    &lt;form method=&quot;POST&quot;&gt;
+        {% csrf_token %}
+        &lt;div class=&quot;mb-3&quot;&gt;
+            &lt;label for=&quot;input1&quot; class=&quot;form-label&quot;&gt;Input 1&lt;/label&gt;
+            &lt;input type=&quot;text&quot; class=&quot;form-control&quot; id=&quot;input1&quot; name=&quot;input1&quot; value=&quot;{{ input1 }}&quot;&gt;
+        &lt;/div&gt;
+
+        &lt;div class=&quot;mb-3&quot;&gt;
+            &lt;label for=&quot;input2&quot; class=&quot;form-label&quot;&gt;Input 2&lt;/label&gt;
+            &lt;input type=&quot;text&quot; class=&quot;form-control&quot; id=&quot;input2&quot; name=&quot;input2&quot; value=&quot;{{ input2 }}&quot;&gt;
+        &lt;/div&gt;
+
+        &lt;button type=&quot;submit&quot; class=&quot;btn btn-primary&quot;&gt;Compute&lt;/button&gt;
+    &lt;/form&gt;
+
+    {% if sum_values is not None %}
+    &lt;div class=&quot;mt-3&quot;&gt;
+        &lt;h5&gt;Result:&lt;/h5&gt;
+        &lt;p&gt;&lt;strong&gt;Sum:&lt;/strong&gt; {{ sum_values }}&lt;/p&gt;
+    &lt;/div&gt;
+    {% endif %}
+&lt;/div&gt;
+{% endblock %}
+</code></pre>
+<h3 id="summaryhtml"><code>summary.html</code></h3>
+<p>This template displays a static summary page.</p>
+<pre><code class="language-html">{% extends 'base.html' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+&lt;div class=&quot;card shadow-lg p-4 mb-3&quot;&gt;
+    &lt;h4 class=&quot;mb-4 text-center&quot;&gt;{{ title }}&lt;/h4&gt;
+    &lt;p&gt;This is a static summary page.&lt;/p&gt;
+&lt;/div&gt;
+{% endblock %}
+</code></pre>
+<hr />
+<h2 id="5-navigation-menu">5️⃣ Navigation Menu</h2>
+<p>To enable users to switch between the <strong>Summation</strong> and <strong>Summary</strong> pages, we include a simple navigation menu:</p>
+<pre><code class="language-html">&lt;div class=&quot;mb-3&quot;&gt;
+    &lt;ul class=&quot;nav justify-content-center&quot;&gt;
+        &lt;li class=&quot;nav-item&quot;&gt;
+            &lt;a class=&quot;nav-link border&quot; href=&quot;{% url 'compute:summation' %}&quot;&gt;Summation&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li class=&quot;nav-item&quot;&gt;
+            &lt;a class=&quot;nav-link border&quot; href=&quot;{% url 'compute:summary' %}&quot;&gt;Summary&lt;/a&gt;
+        &lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;
+</code></pre>
+<blockquote>
+<p>✅ This menu is placed in the <code>base.html</code> template or any other layout template you are using.</p>
+</blockquote>
+<hr />
+<h2 id="final-result">🎉 Final Result</h2>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Admin</th>
+<th>User</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>View summation page</td>
+<td>✅ Yes</td>
+<td>✅ Yes</td>
+</tr>
+<tr>
+<td>View summary page</td>
+<td>✅ Yes</td>
+<td>✅ Yes</td>
+</tr>
+<tr>
+<td>Perform summation calculation</td>
+<td>✅ Yes</td>
+<td>✅ Yes</td>
+</tr>
+<tr>
+<td>Static summary page</td>
+<td>✅ Yes</td>
+<td>✅ Yes</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Admin and users can both access the <strong>Summation</strong> and <strong>Summary</strong> pages, but only users with the correct permissions (in future versions) will be able to add or modify data. In this version, both can view and use the summation form.</p>
+</blockquote>
+<hr />
+<h2 id="summary">🎯 Summary</h2>
+<p>This guide shows how to build a simple <strong>Compute</strong> module in Django with routes for summation and summary. The module allows users to input two numbers and calculate their sum, and also provides a static summary page.</p>
+<p>The <strong>Compute</strong> module is integrated into the larger Django project, with a centralized navigation menu for users to access both features easily. This modular approach makes it easy to extend functionality in the future.</p>
+<hr />
+<h2 id="django-guide-12-part-2-rendering-static-markdown">📘 Django – Guide 12 Part 2: Rendering Static Markdown</h2>
+<blockquote>
+<p><strong>📌 Note:</strong>
+This section of the guide focuses on rendering <strong>static markdown files</strong> in a Django project. You will learn how to serve markdown files from the <code>static</code> directory and render them as HTML using a dedicated view.</p>
+</blockquote>
+<p>The <strong>Markdown Renderer</strong> module allows users to view markdown content on your website by converting <code>.md</code> files into HTML and displaying them dynamically.</p>
+<hr />
+<h2 id="objectives_1">🎯 Objectives</h2>
+<p>By the end of this guide, you will:</p>
+<ul>
+<li>✅ Set up routes to render markdown files</li>
+<li>✅ Convert markdown content to HTML using the <code>markdown</code> Python library</li>
+<li>✅ Display static markdown content in a custom template</li>
+<li>✅ Handle custom markdown files with dynamic URLs</li>
+</ul>
+<hr />
+<h2 id="project-structure-relevant-files_1">📁 Project Structure (Relevant Files)</h2>
+<pre><code>project_folder/
+├── core/
+│   ├── urls.py               ← Core URLs for routing, including markdown paths
+│   └── views.py              ← Views for rendering markdown
+├── static/
+│   └── markdown/
+│       └── guide-12.md       ← Sample markdown file
+└── templates/
+    └── markdown_renderer.html ← Template to render markdown content
+</code></pre>
+<hr />
+<h2 id="1-coreurlspy-routing-for-markdown">1️⃣ <code>core/urls.py</code> — Routing for Markdown</h2>
+<p>In your <code>core/urls.py</code>, add routes to handle markdown rendering requests. These routes are responsible for serving the markdown files and rendering them using the appropriate view.</p>
+<pre><code class="language-python">from django.contrib import admin
+from django.urls import path, include
+from . import views  # Import views for markdown rendering
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('compute/', include('apps.compute.urls')),  # Other app URLs
+    path('markdown/', views.render_markdown_view, name='render_markdown'),
+    path('markdown/&lt;str:filename&gt;/', views.render_markdown_file, name='render_markdown_file'),  # Dynamic file handling
+    path('', include('apps.movements.urls')),  # Home page
+    path('uom/', include('apps.uom.urls')),
+]
+</code></pre>
+<blockquote>
+<p>✅ <strong><code>/markdown/</code></strong> renders a static markdown content page.
+✅ <strong><code>/markdown/&lt;filename&gt;/</code></strong> handles specific markdown files, dynamically serving them as HTML.</p>
+</blockquote>
+<hr />
+<h2 id="2-coreviewspy-markdown-rendering-logic">2️⃣ <code>core/views.py</code> — Markdown Rendering Logic</h2>
+<p>You can define two views in your <code>views.py</code> file. One is for rendering static content, and the other dynamically handles markdown files.</p>
+<h3 id="static-markdown-content">Static Markdown Content</h3>
+<pre><code class="language-python">from django.shortcuts import render
+
+def render_markdown_view(request):
+    # Static content, you can replace this with dynamic content as needed
+    content = &quot;Your markdown content goes here&quot;
+    return render(request, 'markdown_renderer.html', {'content': content})
+</code></pre>
+<p>This simple view renders predefined static markdown content into HTML.</p>
+<h3 id="dynamic-markdown-file-handling">Dynamic Markdown File Handling</h3>
+<pre><code class="language-python">from django.http import HttpResponse, Http404
+from pathlib import Path
+from django.conf import settings
+import markdown
+
+def render_markdown_file(request, filename):
+    # Construct the path to the markdown file in static/markdown folder
+    markdown_file_path = Path(settings.BASE_DIR) / 'static' / 'markdown' / f'{filename}.md'
+
+    # Check if the file exists
+    if markdown_file_path.exists():
+        # Read the content of the markdown file
+        with open(markdown_file_path, 'r') as file:
+            content = file.read()
+
+        # Convert markdown content to HTML using the markdown library
+        html_content = markdown.markdown(content, extensions=['fenced_code', 'codehilite', 'tables'])
+
+        # Return the rendered HTML content to the template
+        return render(request, 'markdown_renderer.html', {'content': html_content})
+    else:
+        raise Http404(f&quot;File '{filename}.md' not found.&quot;)
+</code></pre>
+<p>This function checks if the markdown file exists in the <code>static/markdown/</code> directory, reads it, and renders it as HTML using the <code>markdown</code> library.</p>
+<hr />
+<h2 id="3-template-markdown_rendererhtml">3️⃣ Template: <code>markdown_renderer.html</code></h2>
+<p>The <code>markdown_renderer.html</code> template is used to render the HTML content generated from the markdown file.</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;{{ title }}&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;{{ title }}&lt;/h1&gt;
+
+    &lt;!-- Display the rendered markdown content --&gt;
+    &lt;div&gt;{{ content|safe }}&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>This template is simple and outputs the converted markdown content inside a <code>div</code>. The <code>|safe</code> filter ensures that HTML from the markdown is rendered correctly.</p>
+<hr />
+<h2 id="4-accessing-markdown-pages">4️⃣ Accessing Markdown Pages</h2>
+<p>After setting up the views and templates, you can navigate to:</p>
+<ul>
+<li><strong>Static markdown content</strong>: <code>/markdown/</code></li>
+<li><strong>Dynamic markdown files</strong>: <code>/markdown/guide-12/</code></li>
+</ul>
+<hr />
+<h2 id="final-result_1">🎉 Final Result</h2>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Admin</th>
+<th>User</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>View static markdown page</td>
+<td>✅ Yes</td>
+<td>✅ Yes</td>
+</tr>
+<tr>
+<td>View dynamic markdown files</td>
+<td>✅ Yes</td>
+<td>✅ Yes</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="summary_1">🎯 Summary</h2>
+<p>This guide shows how to set up a simple <strong>Markdown Renderer</strong> in Django to display static markdown files as HTML. By using Django views and the <code>markdown</code> library, you can easily render <code>.md</code> files as part of your web application.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+    
+  </body>
+</html>

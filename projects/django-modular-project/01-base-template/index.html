@@ -1,0 +1,893 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>Django App Setup: dbpilot with uom and base.html - MkDocs Library</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../css/custom.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#django-app-setup-dbpilot-with-uom-and-basehtml" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="MkDocs Library" class="md-header__button md-logo" aria-label="MkDocs Library" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            MkDocs Library
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Django App Setup: dbpilot with uom and base.html
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="MkDocs Library" class="md-nav__button md-logo" aria-label="MkDocs Library" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    MkDocs Library
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Articles
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Articles
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../articles/article1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Article1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../articles/article2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Article2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Books
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Books
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../books/book1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Book1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../books/book2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Book2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Index
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#project-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Project Structure
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-and-setup-django-debug-toolbar-folders-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Install and setup Django, debug toolbar, folders, files
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-coreurlspy-root-url-routing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. core/urls.py — Root URL Routing
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-appsuomurlspy-app-specific-routes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. apps/uom/urls.py — App-specific Routes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-appsuomviewspy-views-controllers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. apps/uom/views.py — Views / Controllers
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-appsuomappspy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. apps/uom/apps.py
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-using-basehtml-in-uomindexhtml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Using base.html in uom/index.html
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-templatesbasehtml-global-layout" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. templates/base.html — Global Layout
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-settings-reminder-coresettingspy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Settings Reminder (core/settings.py)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ✅ 8. How it Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="django-app-setup-dbpilot-with-uom-and-basehtml">Django App Setup: <code>dbpilot</code> with <code>uom</code> and <code>base.html</code></h1>
+<h2 id="project-structure">Project Structure</h2>
+<pre><code>project_folder/
+├── manage.py                  # Django management entrypoint
+│
+├── core/
+│   ├── settings.py            # Centralized settings (DB, paths, debug, apps)
+│   └── urls.py                # Root URL router, includes app URLs
+│
+├── apps/
+│   └── uom/
+│       ├── urls.py            # App-specific routes
+│       ├── views.py           # Views / controllers
+│       ├── models.py          # Database models for CRUD
+│       ├── forms.py           # Forms for CRUD (optional)
+│       └── templates/
+│           └── uom/
+│               └── index.html # App-level template
+│
+├── templates/
+│   └── base.html              # Global base layout
+│
+└── static/
+    ├── css/
+    │   └── style.css          # Global CSS
+    └── img/
+        └── favicon.png         # Global images
+</code></pre>
+<h2 id="install-and-setup-django-debug-toolbar-folders-files">Install and setup Django, debug toolbar, folders, files</h2>
+<pre><code>$ cd /home/user/Public/web
+$ mkdir &lt;project-folder&gt;
+$ cd &lt;project-folder&gt;
+$ python3 -m venv venv
+$ source venv/bin/activate
+(venv) $ pip install --upgrade pip
+(venv) $ pip install Django django-debug-toolbar
+(venv) $ django-admin startproject core .
+(venv) $ mkdir apps
+(venv) $ python manage.py startapp uom
+(venv) $ mv uom apps
+(venv) $ mkdir templates static
+(venv) $ touch templates/base.html
+(venv) $ mkdir static/css
+(venv) $ touch static/css/style.css
+(venv) $ mkdir apps/uom/templates
+(venv) $ mkdir apps/uom/templates/uom
+(venv) $ touch apps/uom/templates/uom/index.html
+</code></pre>
+<h2 id="1-coreurlspy-root-url-routing">1. <code>core/urls.py</code> — Root URL Routing</h2>
+<pre><code class="language-python"># core/urls.py
+from django.contrib import admin
+from django.urls import path, include
+from django.conf import settings  # For DEBUG
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('', include('apps.uom.urls')),  # Home app
+]
+
+# Debug Toolbar URLs only if DEBUG=True
+if settings.DEBUG:
+    import debug_toolbar
+    urlpatterns = [path('__debug__/', include(debug_toolbar.urls))] + urlpatterns
+</code></pre>
+<p><strong>Note:</strong></p>
+<ul>
+<li><code>uom</code> is currently set as the <strong>temporary home URL</strong>.</li>
+<li>The <strong>Django Debug Toolbar</strong> is added for debugging. If it is not installed or configured, you can refer to the setup in the <strong>previous guide/project</strong> for instructions.</li>
+</ul>
+<hr />
+<h2 id="2-appsuomurlspy-app-specific-routes">2. <code>apps/uom/urls.py</code> — App-specific Routes</h2>
+<pre><code class="language-python">from django.urls import path
+from . import views
+
+app_name = 'uom'
+
+urlpatterns = [
+    path('', views.index, name='index'),  # Home page for the app
+]
+</code></pre>
+<hr />
+<h2 id="3-appsuomviewspy-views-controllers">3. <code>apps/uom/views.py</code> — Views / Controllers</h2>
+<pre><code class="language-python">from django.shortcuts import render
+
+# Home page view
+def index(request):
+    context = {
+        'title': 'UOM Home',  # Example context variable
+        'welcome_message': 'Welcome to the UOM App!',
+    }
+    return render(request, 'uom/index.html', context)
+</code></pre>
+<hr />
+<h2 id="4-appsuomappspy">4. <code>apps/uom/apps.py</code></h2>
+<pre><code class="language-python">from django.apps import AppConfig
+
+class UomConfig(AppConfig):
+    default_auto_field = 'django.db.models.BigAutoField'
+    name = 'apps.uom'   # &lt;-- must match with `core/settings.py`
+</code></pre>
+<hr />
+<h2 id="5-using-basehtml-in-uomindexhtml">5. Using <code>base.html</code> in <code>uom/index.html</code></h2>
+<p>In your <code>uom/templates/uom/index.html</code>:</p>
+<pre><code class="language-html">{% extends 'base.html' %}
+
+{% block title %}{{title}} - Django &amp; SQLite{% endblock %}
+
+{% block content %}
+    &lt;div class=&quot;card shadow-lg p-4 mb-3&quot;&gt;
+    &lt;h4 class=&quot;mb-4 text-center&quot;&gt;Database db.sqlite3&lt;/h4&gt;
+    &lt;div class=&quot;mb-3 d-flex flex-wrap align-items-center gap-2&quot;&gt;
+      &lt;label for=&quot;tableSelect&quot; class=&quot;form-label mb-0&quot;&gt;Table:&lt;/label&gt;
+      &lt;select class=&quot;form-select form-select-sm&quot; id=&quot;tableSelect&quot; style=&quot;width: auto; min-width: 150px;&quot;&gt;
+        &lt;option value=&quot;stock_items_uom&quot;&gt;stock_items_uom&lt;/option&gt;            
+      &lt;/select&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;div class=&quot;card shadow-lg p-4 mb-3&quot;&gt;
+&lt;pre&gt;&lt;code&gt;CREATE TABLE &quot;stock_items_uom&quot; (
+  &quot;id&quot;  INTEGER,
+  &quot;name&quot;    TEXT NOT NULL UNIQUE,
+  &quot;description&quot; TEXT,
+  &quot;status&quot;  INTEGER DEFAULT 1,
+  &quot;created_at&quot;  DATETIME DEFAULT CURRENT_TIMESTAMP,
+  &quot;updated_at&quot;  DATETIME DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY(&quot;id&quot; AUTOINCREMENT)
+);&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3&gt;{{ title }}&lt;/h3&gt;
+&lt;p&gt;
+{{ welcome_message }}.
+This guide does not require creating a new database file. The SQLite database is already provided in the repository
+along with sample data. This guide is only for displaying the schema and reading data.
+&lt;/p&gt;
+ &lt;/div&gt;
+{% endblock %}
+</code></pre>
+<blockquote>
+<p><code>content</code> block must exist in <code>base.html</code> as the placeholder for page content.</p>
+</blockquote>
+<hr />
+<h2 id="6-templatesbasehtml-global-layout">6. <code>templates/base.html</code> — Global Layout</h2>
+<p>Example skeleton:</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;{% load static %}
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+  &lt;title&gt;{% block title %}Django &amp; SQLite{% endblock %}&lt;/title&gt;
+  &lt;link href=&quot;{% static 'img/favicon.png' %}&quot; rel=&quot;icon&quot; type=&quot;image/x-icon&quot;&gt;
+  &lt;link href=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css&quot; rel=&quot;stylesheet&quot;&gt;
+  &lt;link href=&quot;{% static 'css/style.css' %}&quot; rel=&quot;stylesheet&quot;&gt;
+&lt;/head&gt;
+&lt;body class=&quot;bg-light d-flex flex-column align-items-center&quot;&gt;
+&lt;header&gt;&lt;h1&gt;Django DB Pilot Header&lt;/h1&gt;&lt;/header&gt;
+&lt;main&gt;
+{% block content %}{% endblock %}
+&lt;/main&gt;
+&lt;footer class=&quot;attribution mt-auto py-3 bg-light text-center&quot;&gt;
+    &lt;p&gt;
+        Template by &lt;a href=&quot;https://getbootstrap.com/&quot; target=&quot;_blank&quot;&gt;Bootstrap&lt;/a&gt;.
+        Favicon by &lt;a href=&quot;https://www.freepik.com/&quot; target=&quot;_blank&quot;&gt;Freepik&lt;/a&gt;.
+        Powered by &lt;a href=&quot;https://www.djangoproject.com/&quot; target=&quot;_blank&quot;&gt;Django Web Framework&lt;/a&gt;.
+    &lt;/p&gt;
+&lt;/footer&gt;
+&lt;script src=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<hr />
+<h2 id="7-settings-reminder-coresettingspy">7. Settings Reminder (<code>core/settings.py</code>)</h2>
+<p>Ensure:</p>
+<pre><code class="language-python">SECRET_KEY = 'Put-your-own-secret-key-here-!j08aqmj1dul*x5&amp;(j$ltap'
+
+DEBUG = True
+
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
+
+INTERNAL_IPS = [
+    &quot;127.0.0.1&quot;,  # Localhost
+    &quot;localhost&quot;,  # Also allow localhost by name
+]
+
+INSTALLED_APPS = [
+    # Default Django apps...
+    'django.contrib.staticfiles',
+
+    # Your apps
+    'apps.uom',             # &lt;-- must match with `apps/uom/apps.py`
+    'debug_toolbar',        # &lt;-- Debug Toolbar
+] 
+
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [BASE_DIR / 'templates'],  # Global templates
+        'APP_DIRS': True,                  # Looks inside app templates
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]
+
+MIDDLEWARE = [
+    'django.middleware.security.SecurityMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',  # &lt;-- Debug Toolbar     
+    'django.middleware.common.CommonMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+]
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
+
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [BASE_DIR / 'static']
+</code></pre>
+<hr />
+<h2 id="8-how-it-works">✅ 8. How it Works</h2>
+<ol>
+<li>Root URL (<code>''</code>) routes to <code>apps.uom.views.index</code>.</li>
+<li><code>index</code> view passes context variables to <code>uom/index.html</code>.</li>
+<li><code>index.html</code> extends <code>base.html</code>, injecting content into <code>{% block content %}</code>.</li>
+<li>Global CSS and assets are loaded via <code>STATICFILES_DIRS</code>.</li>
+</ol>
+<hr />
+<p>This is the <strong>minimal working setup</strong> for templating with <code>base.html</code> and using <code>uom</code> as the home app. This guide does not require creating a new database file. The SQLite database is already provided in the repository along with sample data.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+    
+  </body>
+</html>
