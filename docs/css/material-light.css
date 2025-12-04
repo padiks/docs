@@ -1,0 +1,188 @@
+/* ===========================================
+   Modern Clean Light Mode for MkDocs Material
+   Subtle colors, smooth shadows, soft edges
+   =========================================== */
+
+@import url("https://fonts.googleapis.com/css2?family=IM+Fell+English&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Alegreya+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Neucha&display=swap");
+
+:root {
+    --light-bg: #ffffff;
+    --light-bg-alt: #fafafa;
+    --light-border: #e5e5e5;
+    --light-text: #2a2a2a;
+    --light-muted: #6a6a6a;
+    --light-accent: #4a7cff;
+    --light-accent-hover: #2f63ff;
+
+    --md-default-fg-color: var(--light-text) !important;
+    --md-primary-fg-color: var(--light-text) !important;
+    --md-typeset-color: var(--light-text) !important;
+}
+
+.md-main,
+.md-content,
+.md-main__inner,
+.md-sidebar--primary,
+.md-sidebar--primary .md-nav__list,
+.md-sidebar--secondary,
+.md-header,
+.md-footer,
+.md-footer__inner {
+    background: var(--light-bg);
+    color: var(--light-text);
+}
+
+.md-header {
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.md-sidebar--primary {
+    border-right: 1px solid var(--light-border);
+}
+
+.md-sidebar--secondary {
+    border-left: 1px solid var(--light-border);
+}
+
+.md-nav__item a,
+.md-nav__link,
+.md-header__title,
+.md-header__button,
+.md-header a,
+.md-footer .md-nav__link,
+.md-footer a {
+    color: var(--light-text) !important;
+}
+
+.md-nav__item a {
+    padding: 6px 12px;
+    border-radius: 6px;
+    transition: background 0.15s ease, color 0.15s ease;
+}
+
+.md-nav__item a:hover,
+.md-nav__item--active > a {
+    background: var(--light-bg-alt);
+    color: var(--light-accent) !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--light-text);
+    scroll-margin-top: 80px;
+    font-family: "IM Fell English", Georgia, serif !important;
+}
+
+.md-typeset a {
+    color: var(--light-accent);
+    text-decoration: none;
+}
+
+.md-typeset a:hover {
+    color: var(--light-accent-hover);
+}
+
+code, pre {
+    background: #f4f6fb;
+    border: 1px solid #e0e4ee;
+    color: #2a2a2a;
+    border-radius: 6px;
+}
+
+code { padding: 2px 4px; }
+
+.md-typeset blockquote {
+    border-left: 4px solid var(--light-accent);
+    background: #f7f9fe;
+    color: var(--light-muted);
+}
+
+.md-typeset table { border: 1px solid var(--light-border); }
+
+.md-typeset table th {
+    background: var(--light-bg-alt);
+    color: var(--light-text);
+}
+
+.md-search__form { background: var(--light-bg-alt); }
+
+.md-search__input {
+    background: var(--light-bg);
+    border: 1px solid var(--light-border);
+    border-radius: 6px;
+}
+
+.md-typeset .admonition {
+    border-left-width: 4px;
+    border-radius: 6px;
+}
+
+.md-card {
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.md-footer,
+.md-footer__inner {
+    box-shadow: 0 -2px 6px rgba(0,0,0,0.04);
+    z-index: 10;
+}
+
+/* Fonts */
+.md-main,
+.md-typeset,
+.md-nav__link,
+.md-nav__item a,
+.md-header__title,
+.md-footer,
+.md-sidebar,
+.md-sidebar__scrollwrap,
+.md-footer__inner,
+.md-typeset p,
+.md-typeset li,
+.md-typeset span {
+    font-family: "Alegreya Sans", Helvetica, Arial, sans-serif !important;
+    font-size: 18px !important;
+    line-height: 1.6;
+}
+
+/* Scrollbars hidden but scrollable */
+.md-sidebar__scrollwrap,
+.md-sidebar,
+.md-nav,
+.md-main,
+.md-main__inner,
+.md-content,
+.md-typeset pre,
+pre,
+code {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.md-sidebar__scrollwrap::-webkit-scrollbar,
+.md-sidebar::-webkit-scrollbar,
+.md-nav::-webkit-scrollbar,
+.md-main::-webkit-scrollbar,
+.md-main__inner::-webkit-scrollbar,
+.md-content::-webkit-scrollbar,
+.md-typeset pre::-webkit-scrollbar,
+pre::-webkit-scrollbar,
+code::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    background: transparent;
+}
+
+pre {
+    overflow-x: auto;
+    overflow-y: auto;
+    max-width: 100%;
+    white-space: pre;
+}
+
+pre code {
+    display: block;
+    overflow-x: auto;
+}
+   
