@@ -7,9 +7,9 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     permissions:
-      contents: write  # Write permission for repository contents
-      pages: write     # Write permission for GitHub Pages
-      id-token: read   # Allow to authenticate with GitHub's ID token
+      contents: write  # Required for pushing content to the repository
+      pages: write     # Required for deploying to GitHub Pages
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
