@@ -1,5 +1,3 @@
-name: Deploy MkDocs
-
 on:
   push:
     branches:
@@ -8,9 +6,10 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    env: 
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # The GitHub Token will be handled automatically
-
+    permissions:
+      contents: write  # Write permission for repository contents
+      pages: write     # Write permission for GitHub Pages
+      id-token: read   # Allow to authenticate with GitHub's ID token
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -26,8 +25,10 @@ jobs:
 
       - name: Build the MkDocs site
         run: |
-          mkdocs build  # Build the site without deploying yet
+          mkdocs build
 
       - name: Deploy to GitHub Pages
         run: |
-          mkdocs gh-deploy --force  # Deploy to gh-pages
+          mkdocs gh-deploy --force
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}  # Use your custom token
