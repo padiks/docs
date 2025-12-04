@@ -8,6 +8,7 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -25,11 +26,8 @@ jobs:
         run: mkdocs build --site-dir ./site
 
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v6
+        uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GH_TOKEN }}
           publish_dir: ./site
-          # optional: if your site is at https://padiks.github.io/docs/
-          # set the repository path:
-          # publish_branch: gh-pages
-          # destination_dir: docs
+          publish_branch: gh-pages
