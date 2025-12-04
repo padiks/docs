@@ -1,0 +1,233 @@
+/* ===========================================
+   Modern Clean Light Mode for MkDocs Material
+   Subtle colors, smooth shadows, soft edges
+@import url("https://fonts.googleapis.com/css?family=Neucha&display=swap");   
+   =========================================== */
+   
+/* Import Google Fonts at the top */
+@import url("https://fonts.googleapis.com/css2?family=IM+Fell+English&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Alegreya+Sans&display=swap");
+
+/* Base palette */
+:root {
+    --light-bg: #ffffff;
+    --light-bg-alt: #fafafa;
+    --light-border: #e5e5e5;
+    --light-text: #2a2a2a;
+    --light-muted: #6a6a6a;
+    --light-accent: #4a7cff; /* soft modern blue */
+    --light-accent-hover: #2f63ff;
+}
+
+/* Main background */
+.md-main,
+.md-content,
+.md-main__inner {
+    background: var(--light-bg);
+    color: var(--light-text);
+}
+
+/* Top header */
+.md-header {
+    background: var(--light-bg);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+/* Navigation (left sidebar) */
+.md-sidebar--primary,
+.md-sidebar--primary .md-nav__list {
+    background: var(--light-bg);
+    border-right: 1px solid var(--light-border);
+}
+
+/* Improve nav link style */
+.md-nav__item a {
+    color: var(--light-text);
+    padding: 6px 12px;
+    border-radius: 6px;
+    transition: background 0.15s ease, color 0.15s ease;
+}
+
+.md-nav__item a:hover {
+    background: var(--light-bg-alt);
+    color: var(--light-accent);
+}
+
+/* Active nav item */
+.md-nav__item--active > a {
+    background: var(--light-bg-alt);
+    color: var(--light-accent);
+}
+
+/* Right sidebar (TOC) */
+.md-sidebar--secondary {
+    background: var(--light-bg);
+    border-left: 1px solid var(--light-border);
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--light-text);
+    scroll-margin-top: 80px; /* Better spacing on scroll */
+}
+
+/* Links in content */
+.md-typeset a {
+    color: var(--light-accent);
+    text-decoration: none;
+}
+
+.md-typeset a:hover {
+    color: var(--light-accent-hover);
+}
+
+/* Code blocks */
+code, pre {
+    background: #f4f6fb;
+    border: 1px solid #e0e4ee;
+    color: #2a2a2a;
+    border-radius: 6px;
+}
+
+/* Inline code */
+code {
+    padding: 2px 4px;
+}
+
+/* Blockquotes */
+.md-typeset blockquote {
+    border-left: 4px solid var(--light-accent);
+    background: #f7f9fe;
+    color: var(--light-muted);
+}
+
+/* Tables */
+.md-typeset table {
+    border: 1px solid var(--light-border);
+}
+
+.md-typeset table th {
+    background: var(--light-bg-alt);
+    color: var(--light-text);
+}
+
+/* Footer */
+.md-footer {
+    background: var(--light-bg);
+    color: var(--light-muted);
+    border-top: 1px solid var(--light-border);
+}
+
+/* Search Bar */
+.md-search__form {
+    background: var(--light-bg-alt);
+}
+
+.md-search__input {
+    background: var(--light-bg);
+    border: 1px solid var(--light-border);
+    border-radius: 6px;
+}
+
+/* Cards (admonitions) */
+.md-typeset .admonition {
+    border-left-width: 4px;
+    border-radius: 6px;
+}
+
+/* Shadows for a clean aesthetic */
+.md-card {
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+/* -------------- */
+
+/* Fix ALL text colors in light mode (sidebar, navbar, content) */
+:root {
+    --md-default-fg-color: var(--light-text) !important;
+    --md-primary-fg-color: var(--light-text) !important;
+    --md-typeset-color: var(--light-text) !important;
+}
+
+/* Optional: ensure nav links also inherit correctly */
+.md-nav__link,
+.md-nav__item a {
+    color: var(--light-text) !important;
+}
+
+/* Fix the top navbar title text */
+.md-header__title,
+.md-header__button,
+.md-header a {
+    color: var(--light-text) !important;
+}
+/* -------------- */
+
+/* Footer matches navbar */
+.md-footer,
+.md-footer__inner,
+.md-footer .md-typeset,
+.md-footer .md-nav__link,
+.md-footer a {
+    background-color: #ffffff !important;   /* white bg like navbar */
+    color: var(--light-text) !important;   /* same dark text as navbar */
+    border-top: 0px solid var(--light-border); /* thin subtle border */
+}
+
+/* Footer links hover */
+.md-footer a:hover {
+    color: var(--light-accent) !important; /* accent color on hover */
+    text-decoration: none;
+}
+
+/* Footer shadow to match navbar */
+.md-footer,
+.md-footer__inner {
+    box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.04); /* subtle top shadow */
+    z-index: 10; /* ensure shadow is visible above content */
+}
+
+/* -------------- */
+
+/* ---------------------------
+   1. Global font (body, sidebar, navbar, footer)
+----------------------------*/
+.md-main,
+.md-typeset,
+.md-nav__link,
+.md-nav__item a,
+.md-header__title,
+.md-footer,
+.md-footer__inner,
+.md-sidebar,
+.md-sidebar__scrollwrap {
+    font-family: "Alegreya Sans", Helvetica, Arial, sans-serif !important;
+    font-size: 18px !important; /* adjust as desired */
+    line-height: 1.6;           /* optional: keeps spacing comfortable */
+}
+
+/* ---------------------------
+   2. Paragraphs inside content
+----------------------------*/
+.md-typeset p,
+.md-typeset li,
+.md-typeset span {
+    font-family: "Alegreya Sans", Helvetica, Arial, sans-serif !important;
+    font-size: 18px !important; /* match the global size */
+    line-height: 1.6;
+}
+
+
+/* ---------------------------
+   3. Headings h1–h6 inside content
+----------------------------*/
+h1, h2, h3, h4, h5, h6,
+.md-typeset h1, .md-typeset h2, .md-typeset h3,
+.md-typeset h4, .md-typeset h5, .md-typeset h6 {
+    font-family: "IM Fell English", Georgia, "Times New Roman", serif !important;
+}
+
+.md-header__title {
+    padding-top: 0.5rem; /* tweak until centered */
+}
+

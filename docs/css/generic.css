@@ -1,0 +1,16 @@
+/* Make headings bolder and more Bootstrap-like */
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif; /* Bootstrap-ish font stack */
+    font-weight: 700;    /* bold headings */
+    line-height: 1.2;    /* tighter spacing */
+    color: #212529;      /* default Bootstrap dark color */
+    letter-spacing: 0;   /* remove extra spacing */
+}
+
+/* Optional: adjust sizes if you want closer to Bootstrap */
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.75rem; }
+h4 { font-size: 1.5rem; }
+h5 { font-size: 1.25rem; }
+h6 { font-size: 1rem; }
