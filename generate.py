@@ -22,7 +22,7 @@ def build_nav(path, base=""):
 
 mkdocs_config = {
     "site_name": "MkDocs Library",
-    "theme": {"name": "dracula"},
+    "theme": {"name": "material"},
     "extra_css": ["css/custom.css"],
     "nav": build_nav(docs_dir)
 }

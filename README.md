@@ -2,7 +2,7 @@
 
 Welcome to **MkDocs Library**, a website automatically generated from Markdown files!
 
-This site organizes content into sections such as **Books** and **Articles**, and is powered by [MkDocs](https://www.mkdocs.org/) with the **Dracula** theme.
+This site organizes content into sections such as **Books** and **Articles**, and is powered by [MkDocs](https://www.mkdocs.org/) with the **Material** theme.
 
 ---
 
@@ -50,11 +50,19 @@ Download and install Python from [python.org](https://www.python.org/downloads/)
 
 ---
 
-### 2. Install MkDocs & Dracula theme
+### 2. Install MkDocs, Material & Dracula theme
 
 ```bash
 pip install mkdocs mkdocs-material mkdocs-dracula
 ```
+
+### Available themes:
+
+* material
+* dracula
+* torillic
+* mkdocs
+* readthedocs 
 
 ---
 
@@ -87,7 +95,7 @@ def build_nav(path, base=""):
 
 mkdocs_config = {
     "site_name": "My Library",
-    "theme": {"name": "dracula"},
+    "theme": {"name": "material"},
     "extra_css": ["css/custom.css"],
     "nav": build_nav(docs_dir)
 }
@@ -135,6 +143,3 @@ mkdocs build
 ---
 
 Enjoy your **fully modular Markdown library website**! 🎉
-
-```
-
