@@ -1,6 +1,8 @@
 site_name: MkDocs Library
 theme:
-  name: dracula
+  name: material
+  palette:
+    scheme: default   # ensures light mode  
 extra_css:
 - css/custom.css
 nav:
