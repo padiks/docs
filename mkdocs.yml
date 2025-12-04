@@ -1,16 +1,27 @@
 site_name: MkDocs Library
 theme:
   name: material
-  palette:
-    scheme: default   # Ensures light mode
 extra_css:
-  - css/custom.css  # Ensure this path is correct
-docs_dir: docs  # Tell MkDocs where your content is (in the docs folder)
+- css/custom.css
 nav:
-  - Articles:
-    - Article1: articles/article1.md
-    - Article2: articles/article2.md
-  - Books:
-    - Book1: books/book1.md
-    - Book2: books/book2.md
-  - Index: index.md  # Index file in the docs folder
+- Index: index.md
+- Projects:
+  - Django Modular Project:
+    - 00 Overview: projects/django-modular-project/00-overview.md
+    - 01 Base Template: projects/django-modular-project/01-base-template.md
+    - 02 Database Sqlite: projects/django-modular-project/02-database-sqlite.md
+    - 03 Full Crud Orm: projects/django-modular-project/03-full-crud-orm.md
+    - 04 Multi Table Includes: projects/django-modular-project/04-multi-table-includes.md
+    - 05 Foreign Keys Relationships: projects/django-modular-project/05-foreign-keys-relationships.md
+    - 06 Auth Login Logout: projects/django-modular-project/06-auth-login-logout.md
+    - 07 User Management: projects/django-modular-project/07-user-management.md
+    - 08 Role Based Django Admin: projects/django-modular-project/08-role-based-django-admin.md
+    - 09 Role Based Crud Module: projects/django-modular-project/09-role-based-crud-module.md
+    - 10 Datatables Integration: projects/django-modular-project/10-datatables-integration.md
+    - 11 Stock Movements Module: projects/django-modular-project/11-stock-movements-module.md
+    - 12 Compute And Markdown: projects/django-modular-project/12-compute-and-markdown.md
+    - 13 Rest Framework: projects/django-modular-project/13-rest-framework.md
+    - 14 Rest Api Consumer: projects/django-modular-project/14-rest-api-consumer.md
+    - 15 Excel Data: projects/django-modular-project/15-excel-data.md
+    - 16 Pdf Viewer: projects/django-modular-project/16-pdf-viewer.md
+    - 17 Task Using Json: projects/django-modular-project/17-task-using-json.md
