@@ -8,6 +8,9 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    env: 
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # The GitHub Token will be handled automatically
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -28,5 +31,3 @@ jobs:
       - name: Deploy to GitHub Pages
         run: |
           mkdocs gh-deploy --force  # Deploy to gh-pages
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Ensure authentication is handled
